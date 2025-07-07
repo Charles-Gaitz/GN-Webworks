@@ -101,7 +101,7 @@ const Partnership = () => {
                 Since 2022, we've specialized in creating, scaling, and revitalizing websites that elevate brands and drive measurable growth. But our journey began differently—with entrepreneurial experience that gives us unique insight into business challenges.
               </p>
               <p>
-                Drawing from our experience as former entrepreneurs, we understand firsthand the challenges businesses face in the digital landscape. This insight drives our approach to web development, where we combine clean, modern design with performance optimization and strategic SEO implementation.
+                Drawing from our experience as system engineers and entreprenures, we understand firsthand the challenges businesses face in the digital landscape. This insight drives our approach to web development, where we combine clean, modern design with performance optimization and strategic SEO implementation.
               </p>
               <p>
                 Our mission is simple: to create websites that don't just look impressive—they perform. Whether you're launching a new digital presence or upgrading an existing site, we bring the technical expertise and business acumen to help your brand succeed online.
