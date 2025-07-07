@@ -1,22 +1,55 @@
+// src/components/Contact.tsx
 import React, { useState } from 'react';
 import { Send, Mail, Phone, MapPin, Instagram, Clock, HelpCircle, Linkedin } from 'lucide-react';
 import { supabase, Contact as ContactType } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 
-// src/components/Contact.tsx
-// ... (other imports and code)
-
 const Contact = () => {
-  // ... (state and other functions)
+  const { user } = useAuth();
+
+  const [formData, setFormData] = useState<ContactType>({
+    name: '',
+    email: user?.email || '', // Pre-fill email if user is logged in
+    company: '',
+    budget: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-    
+    setSubmitStatus('idle'); // Reset status on new submission attempt
+
     try {
-      // ... (Supabase insert logic)
-      
+      const { data, error } = await supabase
+        .from('contacts')
+        .insert([formData])
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Contact form submitted successfully:', data);
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: user?.email || '', company: '', budget: '', message: '' }); // Clear form on success
+
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+
     } catch (error: any) {
       console.error('Error submitting contact form:', {
         message: error.message,
@@ -27,19 +60,13 @@ const Contact = () => {
       });
       setIsSubmitting(false);
       setSubmitStatus('error');
-      
+
       // Reset status after 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
     }
   };
-
-  // ... (rest of the component)
-};
-
-export default Contact;
-
 
   const faqs = [
     {
