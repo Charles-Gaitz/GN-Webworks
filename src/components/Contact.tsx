@@ -3,25 +3,11 @@ import { Send, Mail, Phone, MapPin, Instagram, Clock, HelpCircle, Linkedin } fro
 import { supabase, Contact as ContactType } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 
+// src/components/Contact.tsx
+// ... (other imports and code)
+
 const Contact = () => {
-  const { user } = useAuth();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    budget: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // ... (state and other functions)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,36 +15,16 @@ const Contact = () => {
     setSubmitStatus('idle');
     
     try {
-      // Prepare contact data
-      const contactData: Omit<ContactType, 'id' | 'created_at'> = {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company || null,
-        budget: formData.budget || null,
-        message: formData.message,
-      };
-
-      // Insert contact into Supabase
-      const { data, error } = await supabase
-        .from('contacts')
-        .insert([contactData]);
-
-      if (error) {
-        throw error;
-      }
-
-      // Success
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', budget: '', message: '' });
-      
-      // Reset status after 3 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
+      // ... (Supabase insert logic)
       
     } catch (error: any) {
-      console.error('Error submitting contact form:', error);
+      console.error('Error submitting contact form:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code,
+        fullError: error // Log the full error object for complete context
+      });
       setIsSubmitting(false);
       setSubmitStatus('error');
       
@@ -68,6 +34,12 @@ const Contact = () => {
       }, 3000);
     }
   };
+
+  // ... (rest of the component)
+};
+
+export default Contact;
+
 
   const faqs = [
     {
