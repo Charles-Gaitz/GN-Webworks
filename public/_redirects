@@ -1,6 +1,1 @@
-# Redirect all http://gnwebworks.com/* → https://gnwebworks.com/*
-http://gnwebworks.com/*    https://gnwebworks.com/:splat    301!
-
-# Redirect all http://www.gnwebworks.com/* → https://gnwebworks.com/*
-http://www.gnwebworks.com/*    https://gnwebworks.com/:splat    301!
 
