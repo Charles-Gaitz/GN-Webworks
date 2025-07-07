@@ -42,8 +42,8 @@ const Header = () => {
               alt="Webworks Logo" 
               className="h-20 w-20 md:h-44 md:w-44 transition-transform group-hover:scale-105"
             />
-            <span className="text-5xl md:text-5xl font-bold text-white font-poppins">
-              GN Webworks
+            <span className="text-4xl md:text-4xl font-bold text-white font-poppins">
+              Webworks
             </span>
           </button>
 
