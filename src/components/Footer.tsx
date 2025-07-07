@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex flex-col items-start mb-6">
               <img 
-                src="/public/GN-LOGO.png" 
+                src="/GNLOGO.png" 
                 alt="Gaitz Webworks Logo" 
                 className="h-16 w-16 mb-4 opacity-80"
                 loading="lazy"

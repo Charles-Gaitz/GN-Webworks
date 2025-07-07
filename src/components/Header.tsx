@@ -33,7 +33,7 @@ const Header = () => {
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity group"
           >
             <img 
-              src="public/GN-LOGO.png" 
+              src="/GNLOGO.png" 
               alt="Webworks Logo" 
               className="h-20 w-20 md:h-44 md:w-44 transition-transform group-hover:scale-105"
             />
