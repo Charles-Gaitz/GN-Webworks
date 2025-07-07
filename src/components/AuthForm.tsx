@@ -198,7 +198,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
             setMessage(null)
             setFormData({ email: '', password: '', confirmPassword: '' })
           }}
-          className="text-orange-500 hover:text-orange-400 transition-colors"
+                    className="text-orange-500 hover:text-orange-400 transition-colors whitespace-nowrap"
+
         >
           {isSignUp 
             ? 'Already have an account? Sign in' 
