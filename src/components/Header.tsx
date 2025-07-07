@@ -33,12 +33,12 @@ const Header = () => {
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity group"
           >
             <img 
-              src="/logo.png" 
-              alt="Gaitz Webworks Logo" 
+              src="public/GN-LOGO.png" 
+              alt="Webworks Logo" 
               className="h-20 w-20 md:h-44 md:w-44 transition-transform group-hover:scale-105"
             />
-            <span className="text-4xl md:text-4xl font-bold text-white font-poppins">
-              Gaitz Webworks
+            <span className="text-5xl md:text-5xl font-bold text-white font-poppins">
+              GN Webworks
             </span>
           </button>
 

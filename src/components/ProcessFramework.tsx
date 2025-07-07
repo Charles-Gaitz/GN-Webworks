@@ -54,7 +54,7 @@ const ProcessFramework = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-poppins">
-            A Proven Path to <span className="text-orange-500">Digital Excellence</span>
+            Our Proven Path to <span className="text-orange-500">Digital Excellence</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Every successful project follows a structured approach. Here's how I transform your vision into reality.

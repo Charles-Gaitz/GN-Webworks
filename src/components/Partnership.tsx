@@ -86,54 +86,29 @@ const Partnership = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-poppins">
-            My Journey & <span className="text-orange-500">Philosophy</span>
+            Our Journey & <span className="text-orange-500">Philosophy</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A professional website developer with a unique entrepreneurial perspective, dedicated to transforming businesses through powerful digital solutions.
+            A professional website development team with a unique entrepreneurial perspective, dedicated to transforming businesses through powerful digital solutions.
           </p>
         </div>
 
         {/* Personal Story */}
         <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700 mb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  Since 2022, I've specialized in creating, scaling, and revitalizing websites that elevate brands and drive measurable growth. But my journey began differently—as a catering business owner.
-                </p>
-                <p>
-                  Drawing from my experience as a former entrepreneur, I understand firsthand the challenges businesses face in the digital landscape. This insight drives my approach to web development, where I combine clean, modern design with performance optimization and strategic SEO implementation.
-                </p>
-                <p>
-                  My mission is simple: to create websites that don't just look impressive—they perform. Whether you're launching a new digital presence or upgrading an existing site, I bring the technical expertise and business acumen to help your brand succeed online.
-                </p>
-                <p className="text-orange-500 font-semibold">
-                  Let's build something extraordinary together.
-                </p>
-              </div>
-              <div className="space-y-6">
-                <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                  <h4 className="font-semibold text-orange-500 mb-3 font-poppins">What I Bring to Your Project</h4>
-                  <ul className="space-y-2 text-sm text-gray-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                      Mobile-first design with modern frameworks
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                      SEO-optimized structure for better visibility
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                      7-day turnaround for express projects
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                      Free AI consultation for automation
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div className="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                Since 2022, we've specialized in creating, scaling, and revitalizing websites that elevate brands and drive measurable growth. But our journey began differently—with entrepreneurial experience that gives us unique insight into business challenges.
+              </p>
+              <p>
+                Drawing from our experience as former entrepreneurs, we understand firsthand the challenges businesses face in the digital landscape. This insight drives our approach to web development, where we combine clean, modern design with performance optimization and strategic SEO implementation.
+              </p>
+              <p>
+                Our mission is simple: to create websites that don't just look impressive—they perform. Whether you're launching a new digital presence or upgrading an existing site, we bring the technical expertise and business acumen to help your brand succeed online.
+              </p>
+              <p className="text-orange-500 font-semibold">
+                Let's build something extraordinary together.
+              </p>
             </div>
           </div>
         </div>
@@ -154,10 +129,11 @@ const Partnership = () => {
           </div>
         </div>
 
-        {/* Meet the Founder */}
-        <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700 mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Meet the Founder</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        {/* Meet the Founders */}
+        <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Meet the Founders</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Charles Gaitz */}
+          <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
             <div className="text-center">
               <img 
                 src="/About me headshot.jpeg" 
@@ -165,9 +141,9 @@ const Partnership = () => {
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
               />
               <h4 className="text-xl font-bold text-orange-500 font-poppins">Charles Gaitz</h4>
-              <p className="text-gray-300">Owner / Lead Developer</p>
+              <p className="text-gray-300">Co-Founder / Business Strategist</p>
             </div>
-            <div className="md:col-span-2 space-y-4">
+            <div className="mt-8 space-y-4">
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                 <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Credentials & Experience</h5>
                 <ul className="space-y-2 text-sm text-gray-300">
@@ -208,6 +184,84 @@ const Partnership = () => {
               </div>
             </div>
           </div>
+
+          {/* Michael Natufe */}
+          <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
+            <div className="text-center">
+              <img 
+                src="public/Michael_Profile.png" 
+                alt="Michael Natufe - Co-Founder of Gaitz Webworks" 
+                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
+              />
+              <h4 className="text-xl font-bold text-orange-500 font-poppins">Michael Natufe</h4>
+              <p className="text-gray-300">Co-Founder / Lead Developer</p>
+            </div>
+            <div className="mt-8 space-y-4">
+              <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Credentials & Experience</h5>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Business development and strategy
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Client relationship management
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Market analysis and growth planning
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Areas of Expertise</h5>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Strategic business planning
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Partnership development
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Operations optimization
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Digital marketing strategy
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* What We Bring to Your Project */}
+        <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mb-16 max-w-4xl mx-auto">
+          <h4 className="font-semibold text-orange-500 mb-3 font-poppins text-center">What We Bring to Your Project</h4>
+
+          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-300">
+
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+              Mobile-first design with modern frameworks
+            </li>
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+              SEO-optimized structure for better visibility
+            </li>
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+              7-day turnaround for express projects
+            </li>
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+              Free AI consultation for automation
+            </li>
+          </ul>
         </div>
 
         {/* Testimonials Carousel */}

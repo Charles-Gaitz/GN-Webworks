@@ -35,10 +35,10 @@ const Hero = () => {
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <div ref={heroRef} className="opacity-0 transform translate-y-8 transition-all duration-1000">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-poppins">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight font-poppins">
             Do it right
             <br />
-            <span className="text-orange-500">the first time</span>
+            <span className="text-orange-500">or do it twice</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -57,7 +57,7 @@ const Hero = () => {
               onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300"
             >
-              View My Work
+              View Our Work
             </button>
           </div>
         </div>
