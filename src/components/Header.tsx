@@ -69,7 +69,8 @@ const Header = () => {
                 ) : (
                   <button 
                     onClick={() => setShowAuthModal(true)}
-                    className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors"
+                                      className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors whitespace-nowrap"
+
                   >
                     <LogIn className="h-5 w-5" />
                     Sign In
@@ -116,7 +117,7 @@ const Header = () => {
                         setShowAuthModal(true);
                         setIsMenuOpen(false);
                       }}
-                      className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors text-left"
+                      className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors text-left whitespace-nowrap"
                     >
                       <LogIn className="h-5 w-5" />
                       Sign In
