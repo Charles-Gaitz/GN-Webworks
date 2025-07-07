@@ -33,8 +33,7 @@ const Contact = () => {
     try {
       const { data, error } = await supabase
         .from('contacts')
-        .insert([formData])
-        .select();
+        .insert([formData]);
 
       if (error) {
         throw error;
