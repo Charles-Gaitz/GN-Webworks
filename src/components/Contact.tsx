@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Send, Mail, Phone, MapPin, Instagram, Clock, HelpCircle, Linkedin } from 'lucide-react';
+import { supabase, Contact as ContactType } from '../lib/supabase';
+import { useAuth } from '../hooks/useAuth';
 
 const Contact = () => {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,17 +26,48 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Prepare contact data
+      const contactData: Omit<ContactType, 'id' | 'created_at'> = {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || null,
+        budget: formData.budget || null,
+        message: formData.message,
+      };
+
+      // Insert contact into Supabase
+      const { data, error } = await supabase
+        .from('contacts')
+        .insert([contactData])
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      // Success
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', company: '', budget: '', message: '' });
       
+      // Reset status after 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
-    }, 2000);
+      
+    } catch (error: any) {
+      console.error('Error submitting contact form:', error);
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    }
   };
 
   const faqs = [
@@ -68,6 +102,14 @@ const Contact = () => {
           <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
             <h3 className="text-2xl font-bold mb-6 font-poppins">Start Your Project</h3>
             
+            {user && (
+              <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                <p className="text-green-300 text-sm">
+                  ✓ Signed in as {user.email}
+                </p>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -97,6 +139,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    defaultValue={user?.email || ''}
                     className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                     placeholder="your@email.com"
                   />
@@ -162,6 +205,8 @@ const Contact = () => {
                 className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 ${
                   isSubmitting 
                     ? 'bg-gray-600 cursor-not-allowed' 
+                    : submitStatus === 'error'
+                    ? 'bg-red-600 hover:bg-red-700'
                     : submitStatus === 'success'
                     ? 'bg-green-600 hover:bg-green-700'
                     : 'bg-orange-500 hover:bg-orange-600 transform hover:scale-105'
@@ -173,7 +218,9 @@ const Contact = () => {
                     Sending...
                   </>
                 ) : submitStatus === 'success' ? (
-                  'Message Sent Successfully!'
+                  '✓ Message Sent Successfully!'
+                ) : submitStatus === 'error' ? (
+                  '✗ Failed to Send Message'
                 ) : (
                   <>
                     <Send className="h-5 w-5" />
@@ -182,6 +229,14 @@ const Contact = () => {
                 )}
               </button>
             </form>
+            
+            {submitStatus === 'error' && (
+              <div className="mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                <p className="text-red-300 text-sm">
+                  There was an error sending your message. Please try again or contact us directly.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Contact Information */}

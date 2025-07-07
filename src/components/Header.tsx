@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
+import UserMenu from './UserMenu';
+import AuthModal from './AuthModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,9 +61,25 @@ const Header = () => {
             <button onClick={() => scrollToSection('about')} className="text-lg text-gray-300 hover:text-white transition-colors font-medium">
               About
             </button>
-            <button onClick={() => scrollToSection('contact')} className="bg-orange-500 text-white px-8 py-3 text-lg font-semibold rounded-lg hover:bg-orange-600 transition-colors">
-              Get Started
-            </button>
+            
+            {!loading && (
+              <>
+                {user ? (
+                  <UserMenu />
+                ) : (
+                  <button 
+                    onClick={() => setShowAuthModal(true)}
+                    className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors"
+                  >
+                    <LogIn className="h-5 w-5" />
+                    Sign In
+                  </button>
+                )}
+                <button onClick={() => scrollToSection('contact')} className="bg-orange-500 text-white px-8 py-3 text-lg font-semibold rounded-lg hover:bg-orange-600 transition-colors">
+                  Get Started
+                </button>
+              </>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -86,13 +107,38 @@ const Header = () => {
               <button onClick={() => scrollToSection('about')} className="text-lg text-gray-300 hover:text-white transition-colors text-left font-medium">
                 About
               </button>
-              <button onClick={() => scrollToSection('contact')} className="bg-orange-500 text-white px-8 py-3 text-lg font-semibold rounded-lg hover:bg-orange-600 transition-colors text-left">
-                Get Started
-              </button>
+              
+              {!loading && (
+                <>
+                  {!user && (
+                    <button 
+                      onClick={() => {
+                        setShowAuthModal(true);
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-6 py-3 text-lg font-medium rounded-lg transition-colors text-left"
+                    >
+                      <LogIn className="h-5 w-5" />
+                      Sign In
+                    </button>
+                  )}
+                  <button onClick={() => scrollToSection('contact')} className="bg-orange-500 text-white px-8 py-3 text-lg font-semibold rounded-lg hover:bg-orange-600 transition-colors text-left">
+                    Get Started
+                  </button>
+                </>
+              )}
             </nav>
           </div>
         )}
       </div>
+      
+      <AuthModal 
+        isOpen={showAuthModal} 
+        onClose={() => setShowAuthModal(false)}
+        onAuthSuccess={() => {
+          // Optional: Add any success handling here
+        }}
+      />
     </header>
   );
 };
