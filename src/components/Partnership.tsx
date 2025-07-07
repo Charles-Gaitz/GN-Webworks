@@ -166,7 +166,7 @@ const Partnership = () => {
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    Modern web development
+                    Business development and strategy
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -174,7 +174,7 @@ const Partnership = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    SEO and site performance optimization
+                    Partnership development
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -202,15 +202,15 @@ const Partnership = () => {
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    Business development and strategy
+                    Modern web development
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    Client relationship management
+                    Backend implementation and development
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    Market analysis and growth planning
+                    Systems engineer
                   </li>
                 </ul>
               </div>
@@ -219,7 +219,7 @@ const Partnership = () => {
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    Strategic business planning
+                    SEO and site performance optimization
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
