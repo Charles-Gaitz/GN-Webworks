@@ -11,13 +11,13 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex flex-col items-start mb-6">
               <img 
-                src="/logo.png" 
+                src="/public/GN-LOGO.png" 
                 alt="Gaitz Webworks Logo" 
-                className="w-mobile-logo h-auto mb-4 opacity-80"
+                className="h-16 w-16 mb-4 opacity-80"
                 loading="lazy"
               />
               <span className="text-xl font-bold text-white font-poppins">
-                © Gaitz Webworks
+                GN.Webworks@gmail.com
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">

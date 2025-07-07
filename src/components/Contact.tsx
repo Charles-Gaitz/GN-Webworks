@@ -196,7 +196,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Email</h4>
-                    <p className="text-gray-300">gaitzce@gmail.com</p>
+                    <p className="text-gray-300">GN.Webworks@gmail.com</p>
                   </div>
                 </div>
                 
@@ -233,7 +233,7 @@ const Contact = () => {
             </div>
 
             <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold mb-6 font-poppins">Connect With Me</h3>
+              <h3 className="text-2xl font-bold mb-6 font-poppins">Connect With US</h3>
               
               <div className="flex gap-4">
                 <a
