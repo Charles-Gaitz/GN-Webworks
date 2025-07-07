@@ -156,7 +156,7 @@ const Partnership = () => {
 
         {/* Meet the Founder */}
         <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700 mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Meet the Founder</h3>
+          <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Meet the Founders</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             <div className="text-center">
               <img 
@@ -165,7 +165,7 @@ const Partnership = () => {
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
               />
               <h4 className="text-xl font-bold text-orange-500 font-poppins">Charles Gaitz</h4>
-              <p className="text-gray-300">Owner / Lead Developer</p>
+              <p className="text-gray-300">Co-Founder / Business Strategist</p>
             </div>
             <div className="md:col-span-2 space-y-4">
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
@@ -210,6 +210,60 @@ const Partnership = () => {
           </div>
         </div>
 
+        {/* Meet the Co-Founder - Michael Natufe */}
+        <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="text-center">
+              <img 
+                src="/michael-natufe-headshot.jpeg" 
+                alt="Michael Natufe - Co-Founder of Gaitz Webworks" 
+                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
+              />
+              <h4 className="text-xl font-bold text-orange-500 font-poppins">Michael Natufe</h4>
+              <p className="text-gray-300">Co-Founder / Lead Developer</p>
+            </div>
+            <div className="md:col-span-2 space-y-4">
+              <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Credentials & Experience</h5>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Business development and strategy
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Client relationship management
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Market analysis and growth planning
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Areas of Expertise</h5>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Strategic business planning
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Partnership development
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Operations optimization
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                    Digital marketing strategy
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Testimonials Carousel */}
         <div className="relative bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
           <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Client Testimonials</h3>
