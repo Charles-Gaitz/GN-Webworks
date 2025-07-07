@@ -189,7 +189,7 @@ const Partnership = () => {
           <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
             <div className="text-center">
               <img 
-                src="/Michael_Profile.png" 
+                src="/Michael_Profile.PNG" 
                 alt="Michael Natufe - Co-Founder of Gaitz Webworks" 
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
               />
