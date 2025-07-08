@@ -1,59 +1,74 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Shield, Zap, Users, Heart, Target, Lightbulb, TrendingUp, User } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  Shield,
+  Zap,
+  Users,
+  Heart,
+  Target,
+  Lightbulb,
+  TrendingUp,
+  User,
+} from 'lucide-react';
 
 const Partnership = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
-      text: "Brought my page to so many new eyes in the Houston area!",
-      author: "Tonya Gaitz",
-      position: "Owner",
-      company: "Gaitz HVAC",
-      rating: 5
+      text: 'Brought my page to so many new eyes in the Houston area!',
+      author: 'Tonya Gaitz',
+      position: 'Owner',
+      company: 'Gaitz HVAC',
+      rating: 5,
     },
     {
       text: "Casey's entrepreneurial background really shows in how he approaches web development—it's not just about code, it's about results that drive business growth.",
-      author: "Maria Rodriguez",
-      position: "CEO",
-      company: "Verde Marketing",
-      rating: 5
+      author: 'Maria Rodriguez',
+      position: 'CEO',
+      company: 'Verde Marketing',
+      rating: 5,
     },
     {
-      text: "Charles delivered exactly what we needed - a website that not only looks amazing but actually converts visitors into customers.",
-      author: "David Thompson",
-      position: "Founder",
-      company: "TechStart Solutions",
-      rating: 5
-    }
+      text: 'Charles delivered exactly what we needed - a website that not only looks amazing but actually converts visitors into customers.',
+      author: 'David Thompson',
+      position: 'Founder',
+      company: 'TechStart Solutions',
+      rating: 5,
+    },
   ];
 
   const coreValues = [
     {
       icon: Target,
-      title: "Excellence through Simplicity",
-      description: "Clean, focused solutions that deliver maximum impact without unnecessary complexity."
+      title: 'Excellence through Simplicity',
+      description:
+        'Clean, focused solutions that deliver maximum impact without unnecessary complexity.',
     },
     {
       icon: Shield,
-      title: "Transparency and Trust",
-      description: "Open communication, honest timelines, and clear project expectations from start to finish."
+      title: 'Transparency and Trust',
+      description:
+        'Open communication, honest timelines, and clear project expectations from start to finish.',
     },
     {
       icon: TrendingUp,
-      title: "Results-Driven Design",
-      description: "Every design decision is made with your business goals and user conversion in mind."
+      title: 'Results-Driven Design',
+      description:
+        'Every design decision is made with your business goals and user conversion in mind.',
     },
     {
       icon: Lightbulb,
-      title: "Continuous Learning & Innovation",
-      description: "Staying ahead of technology trends and implementing cutting-edge solutions."
+      title: 'Continuous Learning & Innovation',
+      description: 'Staying ahead of technology trends and implementing cutting-edge solutions.',
     },
     {
       icon: Heart,
-      title: "Entrepreneurial Empathy",
-      description: "Understanding business challenges from firsthand entrepreneurial experience."
-    }
+      title: 'Entrepreneurial Empathy',
+      description: 'Understanding business challenges from firsthand entrepreneurial experience.',
+    },
   ];
 
   const technologies = [
@@ -62,23 +77,23 @@ const Partnership = () => {
     { name: 'Bolt.new', level: 90 },
     { name: 'SEO Optimization', level: 88 },
     { name: 'AI/Prompt Engineering', level: 85 },
-    { name: 'Performance Optimization', level: 90 }
+    { name: 'Performance Optimization', level: 90 },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
@@ -89,7 +104,8 @@ const Partnership = () => {
             Our Journey & <span className="text-orange-500">Philosophy</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A professional website development team with a unique entrepreneurial perspective, dedicated to transforming businesses through powerful digital solutions.
+            A professional website development team with a unique entrepreneurial perspective,
+            dedicated to transforming businesses through powerful digital solutions.
           </p>
         </div>
 
@@ -98,13 +114,21 @@ const Partnership = () => {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                Since 2022, we've specialized in creating, scaling, and revitalizing websites that elevate brands and drive measurable growth. But our journey began differently—with entrepreneurial experience that gives us unique insight into business challenges.
+                Since 2022, we've specialized in creating, scaling, and revitalizing websites that
+                elevate brands and drive measurable growth. But our journey began differently—with
+                entrepreneurial experience that gives us unique insight into business challenges.
               </p>
               <p>
-                Drawing from our experience as system engineers and entreprenures, we understand firsthand the challenges businesses face in the digital landscape. This insight drives our approach to web development, where we combine clean, modern design with performance optimization and strategic SEO implementation.
+                Drawing from our experience as system engineers and entreprenures, we understand
+                firsthand the challenges businesses face in the digital landscape. This insight
+                drives our approach to web development, where we combine clean, modern design with
+                performance optimization and strategic SEO implementation.
               </p>
               <p>
-                Our mission is simple: to create websites that don't just look impressive—they perform. Whether you're launching a new digital presence or upgrading an existing site, we bring the technical expertise and business acumen to help your brand succeed online.
+                Our mission is simple: to create websites that don't just look impressive—they
+                perform. Whether you're launching a new digital presence or upgrading an existing
+                site, we bring the technical expertise and business acumen to help your brand
+                succeed online.
               </p>
               <p className="text-orange-500 font-semibold">
                 Let's build something extraordinary together.
@@ -118,7 +142,10 @@ const Partnership = () => {
           <h3 className="text-2xl font-bold text-center mb-10 font-poppins">Core Values</h3>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {coreValues.map((value, index) => (
-              <div key={index} className="text-center group bg-slate-900/30 rounded-xl p-6 border border-slate-700 hover:border-orange-500/50 transition-all">
+              <div
+                key={index}
+                className="text-center group bg-slate-900/30 rounded-xl p-6 border border-slate-700 hover:border-orange-500/50 transition-all"
+              >
                 <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500/30 transition-colors">
                   <value.icon className="h-8 w-8 text-orange-500" />
                 </div>
@@ -135,9 +162,9 @@ const Partnership = () => {
           {/* Charles Gaitz */}
           <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
             <div className="text-center">
-              <img 
-                src="/About me headshot.jpeg" 
-                alt="Charles Gaitz - Founder of Gaitz Webworks" 
+              <img
+                src="/About me headshot.jpeg"
+                alt="Charles Gaitz - Founder of Gaitz Webworks"
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
               />
               <h4 className="text-xl font-bold text-orange-500 font-poppins">Charles Gaitz</h4>
@@ -145,7 +172,9 @@ const Partnership = () => {
             </div>
             <div className="mt-8 space-y-4">
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Credentials & Experience</h5>
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">
+                  Credentials & Experience
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -162,7 +191,9 @@ const Partnership = () => {
                 </ul>
               </div>
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Areas of Expertise</h5>
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">
+                  Areas of Expertise
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -188,9 +219,9 @@ const Partnership = () => {
           {/* Michael Natufe */}
           <div className="bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
             <div className="text-center">
-              <img 
-                src="/Michael_Profile.PNG" 
-                alt="Michael Natufe - Co-Founder of Gaitz Webworks" 
+              <img
+                src="/Michael_Profile.PNG"
+                alt="Michael Natufe - Co-Founder of Gaitz Webworks"
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-orange-500/20"
               />
               <h4 className="text-xl font-bold text-orange-500 font-poppins">Michael Natufe</h4>
@@ -198,7 +229,9 @@ const Partnership = () => {
             </div>
             <div className="mt-8 space-y-4">
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Credentials & Experience</h5>
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">
+                  Credentials & Experience
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -215,7 +248,9 @@ const Partnership = () => {
                 </ul>
               </div>
               <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">Areas of Expertise</h5>
+                <h5 className="font-semibold text-orange-500 mb-3 font-poppins">
+                  Areas of Expertise
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
@@ -241,10 +276,11 @@ const Partnership = () => {
 
         {/* What We Bring to Your Project */}
         <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mb-16 max-w-4xl mx-auto">
-          <h4 className="font-semibold text-orange-500 mb-3 font-poppins text-center">What We Bring to Your Project</h4>
+          <h4 className="font-semibold text-orange-500 mb-3 font-poppins text-center">
+            What We Bring to Your Project
+          </h4>
 
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-300">
-
             <li className="flex items-start">
               <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
               Mobile-first design with modern frameworks
@@ -264,11 +300,10 @@ const Partnership = () => {
           </ul>
         </div>
 
-        
         {/* Testimonials Carousel */}
         <div className="relative bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
           <h3 className="text-2xl font-bold text-center mb-8 font-poppins">Client Testimonials</h3>
-          
+
           <div className="relative max-w-4xl mx-auto">
             <div className="text-center">
               <div className="flex justify-center mb-4">
@@ -276,17 +311,18 @@ const Partnership = () => {
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              
+
               <blockquote className="text-xl md:text-2xl text-gray-300 italic mb-6 leading-relaxed">
                 "{testimonials[currentTestimonial].text}"
               </blockquote>
-              
+
               <div className="text-center">
                 <cite className="text-lg font-semibold text-orange-500">
                   {testimonials[currentTestimonial].author}
                 </cite>
                 <p className="text-gray-400">
-                  {testimonials[currentTestimonial].position}, {testimonials[currentTestimonial].company}
+                  {testimonials[currentTestimonial].position},{' '}
+                  {testimonials[currentTestimonial].company}
                 </p>
               </div>
             </div>
@@ -298,7 +334,7 @@ const Partnership = () => {
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
-              
+
               <div className="flex space-x-2">
                 {testimonials.map((_, index) => (
                   <button
@@ -310,7 +346,7 @@ const Partnership = () => {
                   />
                 ))}
               </div>
-              
+
               <button
                 onClick={nextTestimonial}
                 className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"

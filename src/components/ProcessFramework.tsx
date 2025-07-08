@@ -6,8 +6,8 @@ const ProcessFramework = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-slide-up');
           }
@@ -17,7 +17,7 @@ const ProcessFramework = () => {
     );
 
     const cards = sectionRef.current?.querySelectorAll('.process-card');
-    cards?.forEach((card) => observer.observe(card));
+    cards?.forEach(card => observer.observe(card));
 
     return () => observer.disconnect();
   }, []);
@@ -26,27 +26,44 @@ const ProcessFramework = () => {
     {
       icon: Search,
       title: 'Discovery',
-      description: 'Deep dive into your business goals, target audience, and technical requirements.',
-      deliverables: ['Project roadmap', 'Technical specifications', 'User personas', 'Feature prioritization']
+      description:
+        'Deep dive into your business goals, target audience, and technical requirements.',
+      deliverables: [
+        'Project roadmap',
+        'Technical specifications',
+        'User personas',
+        'Feature prioritization',
+      ],
     },
     {
       icon: Palette,
       title: 'Design',
-      description: 'Create intuitive user experiences with modern design principles and accessibility.',
-      deliverables: ['Wireframes', 'UI/UX design', 'Design system', 'Interactive prototypes']
+      description:
+        'Create intuitive user experiences with modern design principles and accessibility.',
+      deliverables: ['Wireframes', 'UI/UX design', 'Design system', 'Interactive prototypes'],
     },
     {
       icon: Code,
       title: 'Development',
       description: 'Build scalable, performant applications using cutting-edge technologies.',
-      deliverables: ['Clean codebase', 'API integration', 'Testing suite', 'Performance optimization']
+      deliverables: [
+        'Clean codebase',
+        'API integration',
+        'Testing suite',
+        'Performance optimization',
+      ],
     },
     {
       icon: Rocket,
       title: 'Deployment',
       description: 'Launch your application with proper monitoring, security, and ongoing support.',
-      deliverables: ['Production deployment', 'Monitoring setup', 'Documentation', 'Training & support']
-    }
+      deliverables: [
+        'Production deployment',
+        'Monitoring setup',
+        'Documentation',
+        'Training & support',
+      ],
+    },
   ];
 
   return (
@@ -57,7 +74,8 @@ const ProcessFramework = () => {
             Our Proven Path to <span className="text-orange-500">Digital Excellence</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Every successful project follows a structured approach. Here's how I transform your vision into reality.
+            Every successful project follows a structured approach. Here's how I transform your
+            vision into reality.
           </p>
         </div>
 

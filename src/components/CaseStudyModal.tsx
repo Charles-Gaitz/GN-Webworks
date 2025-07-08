@@ -21,7 +21,10 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={handleBackdropClick}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={handleBackdropClick}
+    >
       <div className="relative bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-slate-700">
         <button
           onClick={onClose}
@@ -31,11 +34,7 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClose }) =
         </button>
 
         <div className="aspect-video overflow-hidden rounded-t-2xl">
-          <img
-            src={caseStudy.image}
-            alt={caseStudy.title}
-            className="w-full h-full object-cover"
-          />
+          <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
         </div>
 
         <div className="p-8">
@@ -74,7 +73,10 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClose }) =
             <h3 className="text-xl font-bold mb-4 text-orange-500">Technologies Used</h3>
             <div className="flex flex-wrap gap-3">
               {caseStudy.technologies.map((tech: string, index: number) => (
-                <span key={index} className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">
+                <span
+                  key={index}
+                  className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm"
+                >
                   {tech}
                 </span>
               ))}
@@ -87,9 +89,7 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClose }) =
               <blockquote className="text-gray-300 italic mb-4 text-lg">
                 "{caseStudy.testimonial.text}"
               </blockquote>
-              <cite className="text-gray-400 font-semibold">
-                — {caseStudy.testimonial.author}
-              </cite>
+              <cite className="text-gray-400 font-semibold">— {caseStudy.testimonial.author}</cite>
             </div>
           )}
         </div>
