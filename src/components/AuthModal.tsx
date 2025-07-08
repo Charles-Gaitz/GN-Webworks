@@ -40,7 +40,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onAuthSuccess })
   onClick={handleBackdropClick}
 >
 
-      <div className="relative max-w-md w-full">
+      <div className="relative max-w-md w-full max-h-[90vh]  overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute -top-4 -right-4 z-10 bg-slate-800 hover:bg-slate-700 p-2 rounded-full transition-colors"
