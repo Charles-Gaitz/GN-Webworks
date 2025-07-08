@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import { User, LogOut, Settings, ChevronDown } from 'lucide-react'
-import { useAuth } from '../hooks/useAuth'
+import React, { useState } from 'react';
+import { User, LogOut, Settings, ChevronDown } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
 
 const UserMenu: React.FC = () => {
-  const { user, signOut } = useAuth()
-  const [isOpen, setIsOpen] = useState(false)
+  const { user, signOut } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
 
-  if (!user) return null
+  if (!user) return null;
 
   const handleSignOut = async () => {
-    await signOut()
-    setIsOpen(false)
-  }
+    await signOut();
+    setIsOpen(false);
+  };
 
   return (
     <div className="relative">
@@ -30,8 +30,8 @@ const UserMenu: React.FC = () => {
 
       {isOpen && (
         <>
-          <div 
-            className="fixed inset-0 z-10" 
+          <div
+            className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
           <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-lg z-20">
@@ -39,7 +39,7 @@ const UserMenu: React.FC = () => {
               <p className="text-sm font-medium text-white">{user.email}</p>
               <p className="text-xs text-gray-400">Signed in</p>
             </div>
-            
+
             <div className="py-2">
               <button
                 onClick={() => setIsOpen(false)}
@@ -48,7 +48,7 @@ const UserMenu: React.FC = () => {
                 <Settings className="h-4 w-4" />
                 Settings
               </button>
-              
+
               <button
                 onClick={handleSignOut}
                 className="w-full px-4 py-2 text-left text-sm text-gray-300 hover:bg-slate-700 flex items-center gap-2"
@@ -61,7 +61,7 @@ const UserMenu: React.FC = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default UserMenu
+export default UserMenu;

@@ -1,6 +1,15 @@
 // src/components/Contact.tsx
 import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin, Instagram, Clock, HelpCircle, Linkedin } from 'lucide-react';
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Clock,
+  HelpCircle,
+  Linkedin,
+} from 'lucide-react';
 import { supabase, Contact as ContactType } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 
@@ -12,16 +21,22 @@ const Contact = () => {
     email: user?.email || '', // Pre-fill email if user is logged in
     company: '',
     budget: '',
-    message: ''
+    message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -42,20 +57,25 @@ const Contact = () => {
       console.log('Contact form submitted successfully:', data);
       setIsSubmitting(false);
       setSubmitStatus('success');
-      setFormData({ name: '', email: user?.email || '', company: '', budget: '', message: '' }); // Clear form on success
+      setFormData({
+        name: '',
+        email: user?.email || '',
+        company: '',
+        budget: '',
+        message: '',
+      }); // Clear form on success
 
       // Reset status after 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
-
     } catch (error: any) {
       console.error('Error submitting contact form:', {
         message: error.message,
         details: error.details,
         hint: error.hint,
         code: error.code,
-        fullError: error // Log the full error object for complete context
+        fullError: error, // Log the full error object for complete context
       });
       setIsSubmitting(false);
       setSubmitStatus('error');
@@ -69,17 +89,20 @@ const Contact = () => {
 
   const faqs = [
     {
-      question: "How long does it take to build a website?",
-      answer: "Most builds take 1–3 weeks depending on complexity. One-page sites can be ready in under a week."
+      question: 'How long does it take to build a website?',
+      answer:
+        'Most builds take 1–3 weeks depending on complexity. One-page sites can be ready in under a week.',
     },
     {
-      question: "What platforms do you use?",
-      answer: "I build sites using Bolt.new, React (with Vite), Netlify/Vercel hosting, and custom AI prompt systems."
+      question: 'What platforms do you use?',
+      answer:
+        'I build sites using Bolt.new, React (with Vite), Netlify/Vercel hosting, and custom AI prompt systems.',
     },
     {
-      question: "Can you connect my domain for me?",
-      answer: "Yes! I handle GoDaddy and other DNS setups as part of every project."
-    }
+      question: 'Can you connect my domain for me?',
+      answer:
+        'Yes! I handle GoDaddy and other DNS setups as part of every project.',
+    },
   ];
 
   return (
@@ -87,18 +110,23 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-poppins">
-            Let's Build Something <span className="text-orange-500">Extraordinary</span>
+            Let's Build Something{' '}
+            <span className="text-orange-500">Extraordinary</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your digital presence? Whether you're launching a new site or upgrading an existing one, let's create something extraordinary together.
+            Ready to transform your digital presence? Whether you're launching a
+            new site or upgrading an existing one, let's create something
+            extraordinary together.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-            <h3 className="text-2xl font-bold mb-6 font-poppins">Start Your Project</h3>
-            
+            <h3 className="text-2xl font-bold mb-6 font-poppins">
+              Start Your Project
+            </h3>
+
             {user && (
               <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
                 <p className="text-green-300 text-sm">
@@ -106,11 +134,14 @@ const Contact = () => {
                 </p>
               </div>
             )}
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Name *
                   </label>
                   <input
@@ -124,9 +155,12 @@ const Contact = () => {
                     placeholder="Your name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -145,7 +179,10 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Company
                   </label>
                   <input
@@ -158,9 +195,12 @@ const Contact = () => {
                     placeholder="Your company"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="budget"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Project Budget
                   </label>
                   <select
@@ -172,16 +212,23 @@ const Contact = () => {
                   >
                     <option value="">Select budget range</option>
                     <option value="starter">Starter Package ($350-$500)</option>
-                    <option value="full">Full Website Build ($1,000-$3,000+)</option>
+                    <option value="full">
+                      Full Website Build ($1,000-$3,000+)
+                    </option>
                     <option value="seo">SEO Optimization Add-on ($300+)</option>
                     <option value="ai">AI Prompt Pack ($150-$400)</option>
-                    <option value="maintenance">Monthly Support ($75/mo)</option>
+                    <option value="maintenance">
+                      Monthly Support ($75/mo)
+                    </option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Project Details *
                 </label>
                 <textarea
@@ -200,8 +247,8 @@ const Contact = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 ${
-                  isSubmitting 
-                    ? 'bg-gray-600 cursor-not-allowed' 
+                  isSubmitting
+                    ? 'bg-gray-600 cursor-not-allowed'
                     : submitStatus === 'error'
                     ? 'bg-red-600 hover:bg-red-700'
                     : submitStatus === 'success'
@@ -226,11 +273,12 @@ const Contact = () => {
                 )}
               </button>
             </form>
-            
+
             {submitStatus === 'error' && (
               <div className="mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
                 <p className="text-red-300 text-sm">
-                  There was an error sending your message. Please try again or contact us directly.
+                  There was an error sending your message. Please try again or
+                  contact us directly.
                 </p>
               </div>
             )}
@@ -239,8 +287,10 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold mb-6 font-poppins">Get in Touch</h3>
-              
+              <h3 className="text-2xl font-bold mb-6 font-poppins">
+                Get in Touch
+              </h3>
+
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
@@ -251,7 +301,7 @@ const Contact = () => {
                     <p className="text-gray-300">GN.Webworks@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
                     <Phone className="h-6 w-6 text-orange-500" />
@@ -261,7 +311,7 @@ const Contact = () => {
                     <p className="text-gray-300">(713) 828-9460</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
                     <MapPin className="h-6 w-6 text-orange-500" />
@@ -285,8 +335,10 @@ const Contact = () => {
             </div>
 
             <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold mb-6 font-poppins">Connect With US</h3>
-              
+              <h3 className="text-2xl font-bold mb-6 font-poppins">
+                Connect With US
+              </h3>
+
               <div className="flex gap-4">
                 <a
                   href="https://instagram.com/gaitzce"
@@ -308,10 +360,12 @@ const Contact = () => {
             </div>
 
             <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-              <h3 className="text-2xl font-bold mb-4 font-poppins">Response Time</h3>
+              <h3 className="text-2xl font-bold mb-4 font-poppins">
+                Response Time
+              </h3>
               <p className="text-gray-300">
-                I typically respond to all inquiries within 24 hours. For urgent projects, 
-                feel free to call directly.
+                I typically respond to all inquiries within 24 hours. For urgent
+                projects, feel free to call directly.
               </p>
             </div>
           </div>
@@ -321,7 +375,8 @@ const Contact = () => {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4 font-poppins">
-              Frequently Asked <span className="text-orange-500">Questions</span>
+              Frequently Asked{' '}
+              <span className="text-orange-500">Questions</span>
             </h3>
             <p className="text-gray-300">
               Quick answers to common questions about my services and process.
@@ -330,14 +385,21 @@ const Contact = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+              <div
+                key={index}
+                className="bg-slate-800/50 rounded-xl p-6 border border-slate-700"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <HelpCircle className="h-5 w-5 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-2 font-poppins">{faq.question}</h4>
-                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    <h4 className="text-lg font-semibold text-white mb-2 font-poppins">
+                      {faq.question}
+                    </h4>
+                    <p className="text-gray-300 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               </div>

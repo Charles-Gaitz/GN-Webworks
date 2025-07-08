@@ -1,79 +1,82 @@
-import React, { useState } from 'react'
-import { Mail, Lock, User, Eye, EyeOff, LogIn, UserPlus } from 'lucide-react'
-import { supabase } from '../lib/supabase'
+import React, { useState } from 'react';
+import { Mail, Lock, User, Eye, EyeOff, LogIn, UserPlus } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface AuthFormProps {
-  onAuthSuccess?: () => void
-  onClose?: () => void
+  onAuthSuccess?: () => void;
+  onClose?: () => void;
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
-  const [isSignUp, setIsSignUp] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    confirmPassword: ''
-  })
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+    confirmPassword: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setMessage(null)
+    e.preventDefault();
+    setLoading(true);
+    setMessage(null);
 
     try {
       if (isSignUp) {
         // Validate password confirmation
         if (formData.password !== formData.confirmPassword) {
-          setMessage({ type: 'error', text: 'Passwords do not match' })
-          setLoading(false)
-          return
+          setMessage({ type: 'error', text: 'Passwords do not match' });
+          setLoading(false);
+          return;
         }
 
         // Sign up new user
         const { data, error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
-        })
+        });
 
-        if (error) throw error
+        if (error) throw error;
 
         if (data.user) {
-          setMessage({ 
-            type: 'success', 
-            text: 'Account created successfully! Please check your email for verification.' 
-          })
-          setFormData({ email: '', password: '', confirmPassword: '' })
+          setMessage({
+            type: 'success',
+            text: 'Account created successfully! Please check your email for verification.',
+          });
+          setFormData({ email: '', password: '', confirmPassword: '' });
         }
       } else {
         // Sign in existing user
         const { data, error } = await supabase.auth.signInWithPassword({
           email: formData.email,
           password: formData.password,
-        })
+        });
 
-        if (error) throw error
+        if (error) throw error;
 
         if (data.user) {
-          setMessage({ type: 'success', text: 'Signed in successfully!' })
-          onAuthSuccess?.()
+          setMessage({ type: 'success', text: 'Signed in successfully!' });
+          onAuthSuccess?.();
         }
       }
     } catch (error: any) {
-      setMessage({ type: 'error', text: error.message || 'An error occurred' })
+      setMessage({ type: 'error', text: error.message || 'An error occurred' });
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 max-w-md mx-auto">
@@ -82,26 +85,30 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
           {isSignUp ? 'Create Account' : 'Sign In'}
         </h2>
         <p className="text-gray-300">
-          {isSignUp 
-            ? 'Join us to access exclusive features' 
-            : 'Welcome back! Please sign in to continue'
-          }
+          {isSignUp
+            ? 'Join us to access exclusive features'
+            : 'Welcome back! Please sign in to continue'}
         </p>
       </div>
 
       {message && (
-        <div className={`mb-6 p-4 rounded-lg ${
-          message.type === 'success' 
-            ? 'bg-green-500/20 border border-green-500/50 text-green-300' 
-            : 'bg-red-500/20 border border-red-500/50 text-red-300'
-        }`}>
+        <div
+          className={`mb-6 p-4 rounded-lg ${
+            message.type === 'success'
+              ? 'bg-green-500/20 border border-green-500/50 text-green-300'
+              : 'bg-red-500/20 border border-red-500/50 text-red-300'
+          }`}
+        >
           {message.text}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Email Address
           </label>
           <div className="relative">
@@ -120,7 +127,10 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Password
           </label>
           <div className="relative">
@@ -141,14 +151,21 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
             >
-              {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+              {showPassword ? (
+                <EyeOff className="h-5 w-5" />
+              ) : (
+                <Eye className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
 
         {isSignUp && (
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Confirm Password
             </label>
             <div className="relative">
@@ -172,8 +189,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
           type="submit"
           disabled={loading}
           className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 ${
-            loading 
-              ? 'bg-gray-600 cursor-not-allowed' 
+            loading
+              ? 'bg-gray-600 cursor-not-allowed'
               : 'bg-orange-500 hover:bg-orange-600 transform hover:scale-105'
           }`}
         >
@@ -184,7 +201,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
             </>
           ) : (
             <>
-              {isSignUp ? <UserPlus className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
+              {isSignUp ? (
+                <UserPlus className="h-5 w-5" />
+              ) : (
+                <LogIn className="h-5 w-5" />
+              )}
               {isSignUp ? 'Create Account' : 'Sign In'}
             </>
           )}
@@ -194,17 +215,15 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
       <div className="mt-6 text-center">
         <button
           onClick={() => {
-            setIsSignUp(!isSignUp)
-            setMessage(null)
-            setFormData({ email: '', password: '', confirmPassword: '' })
+            setIsSignUp(!isSignUp);
+            setMessage(null);
+            setFormData({ email: '', password: '', confirmPassword: '' });
           }}
-                    className="text-orange-500 hover:text-orange-400 transition-colors whitespace-nowrap"
-
+          className="text-orange-500 hover:text-orange-400 transition-colors whitespace-nowrap"
         >
-          {isSignUp 
-            ? 'Already have an account? Sign in' 
-            : "Don't have an account? Sign up"
-          }
+          {isSignUp
+            ? 'Already have an account? Sign in'
+            : "Don't have an account? Sign up"}
         </button>
       </div>
 
@@ -219,7 +238,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess, onClose }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AuthForm
+export default AuthForm;
