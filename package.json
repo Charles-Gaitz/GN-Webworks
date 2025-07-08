@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    // … other scripts …
+    "format": "prettier --write \"src/**/*.{js,ts,tsx,css,html,md}\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.50.3",
